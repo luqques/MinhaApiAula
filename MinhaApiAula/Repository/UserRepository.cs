@@ -2,14 +2,19 @@
 using MinhaApiAula.Entity;
 using MinhaApiAula.Infrastructure;
 using Dapper;
+using MinhaApiAula.DTO;
 
 namespace MinhaApiAula.Repository
 {
     public class UserRepository : Connection, IUserRepository
     {
-        public Task Add(UserEntity user)
+        public async Task Add(UserDTO user)
         {
-            throw new NotImplementedException();
+            string sql = @"
+                INSERT INTO USER (Name, Email, Password)
+                            VALUE (@Name, @Email, @Password)
+            ";
+            await Execute(sql, user);
         }
 
         public Task Delete(int id)

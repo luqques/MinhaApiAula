@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MinhaApiAula.Contracts.Repository;
+using MinhaApiAula.DTO;
+using MinhaApiAula.Entity;
 
 namespace MinhaApiAula.Controllers
 {
@@ -18,6 +20,13 @@ namespace MinhaApiAula.Controllers
         public async Task<IActionResult> Get()
         {
             return Ok(await _userRepository.Get());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(UserDTO user)
+        {
+            await _userRepository.Add(user);
+            return Ok();
         }
     }
 }
