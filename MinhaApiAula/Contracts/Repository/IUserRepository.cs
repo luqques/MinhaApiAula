@@ -1,10 +1,11 @@
-﻿using MinhaApiAula.Entity;
+﻿using MinhaApiAula.DTO;
+using MinhaApiAula.Entity;
 
 namespace MinhaApiAula.Contracts.Repository
 {
     public interface IUserRepository
     {
-        Task Add(UserEntity user);
+        Task Add(UserDTO user);
         Task Update(UserEntity user);
         Task Delete(int id);
         Task<UserEntity> GetById(int id);
