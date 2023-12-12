@@ -17,9 +17,10 @@ namespace MinhaApiAula.Repository
             await Execute(sql, user);
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            string sql = @"DELETE FROM USER WHERE Id = @id";
+            await Execute(sql, new { id });
         }
 
         public async Task<IEnumerable<UserEntity>> Get()
@@ -33,9 +34,16 @@ namespace MinhaApiAula.Repository
             throw new NotImplementedException();
         }
 
-        public Task Update(UserEntity user)
+        public async Task Update(UserEntity user)
         {
-            throw new NotImplementedException();
+            string sql = @"
+                UPDATE USER 
+                    SET Name = @Name, 
+                        Email = @Email, 
+                        Password = @Password
+                    WHERE Id = @Id
+            ";
+            await Execute(sql, user);
         }
     }
 }

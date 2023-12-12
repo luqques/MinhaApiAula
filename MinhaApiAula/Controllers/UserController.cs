@@ -26,7 +26,21 @@ namespace MinhaApiAula.Controllers
         public async Task<IActionResult> Add(UserDTO user)
         {
             await _userRepository.Add(user);
-            return Ok();
+            return Ok("Usuário adicionado com sucesso.");
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UserEntity user)
+        {
+            await _userRepository.Update(user);
+            return Ok("Usuário alterado com sucesso.");
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _userRepository.Delete(id);
+            return Ok("Usuário deletado com sucesso.");
         }
     }
 }
