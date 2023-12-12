@@ -1,4 +1,4 @@
-﻿namespace MinhaApiAula.NovaPasta
+﻿namespace MinhaApiAula.Entity
 {
     public class UserEntity
     {

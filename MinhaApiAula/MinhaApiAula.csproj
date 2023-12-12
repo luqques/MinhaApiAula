@@ -7,23 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="NovaPasta\NovaPasta\**" />
-    <Content Remove="NovaPasta\NovaPasta\**" />
-    <EmbeddedResource Remove="NovaPasta\NovaPasta\**" />
-    <None Remove="NovaPasta\NovaPasta\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="Controllers\WeatherForecastController.cs" />
     <Compile Remove="WeatherForecast.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.24" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
