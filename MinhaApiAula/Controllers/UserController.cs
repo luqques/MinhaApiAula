@@ -22,6 +22,12 @@ namespace MinhaApiAula.Controllers
             return Ok(await _userRepository.Get());
         }
 
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            return Ok(await _userRepository.GetById(id));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Add(UserDTO user)
         {

@@ -29,9 +29,10 @@ namespace MinhaApiAula.Repository
             return await GetConnection().QueryAsync<UserEntity>(sql);
         }
 
-        public Task<UserEntity> GetById(int id)
+        public async Task<UserEntity> GetById(int id)
         {
-            throw new NotImplementedException();
+           string sql = @"SELECT * FROM USER WHERE Id = @id";
+           return await GetConnection().QueryFirstAsync<UserEntity>(sql, new { id });
         }
 
         public async Task Update(UserEntity user)
